@@ -1,0 +1,69 @@
+<div class="container-fluid">
+<div class="row" *ngIf="heroInfo$ | async as heroInfo">
+ <div class="col-md-3">
+  <div class="card" style="width:300px" >
+    <img class="card-img-top" src="https://fakeimg.pl/300/" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Name : {{heroInfo.name}}</h4>
+      <h4 class="card-title">Height : {{heroInfo.height}}</h4>
+      <h4 class="card-title">Mass : {{heroInfo.mass}}</h4>
+      <h4 class="card-title">Hair Color : {{heroInfo.hair_color}}</h4>
+      <h4 class="card-title">Skin Color : {{heroInfo.skin_color}}</h4>
+      <h4 class="card-title">Gender : {{heroInfo.gender}}</h4>
+      <h4 class="card-title">Birth Year: {{heroInfo.birth_year}}</h4>
+      <h4 class="card-title">Planet Name : {{heroInfo.homePlanet.name}}</h4>
+      <h4 class="card-title">Population : {{heroInfo.homePlanet.population}}</h4>
+      <h4 class="card-title">Terrain : {{heroInfo.homePlanet.terrain}}</h4>
+
+
+    </div>
+  </div>
+</div>
+<div class="col-md-9">
+  <h3>Films</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Director</th>
+        <th>Release Date</th>
+        <th>Producers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor= "let film of heroInfo.filmsData">
+        <td>{{film.title}}</td>
+        <td>{{film.director}}</td>
+        <td>{{film.release_date}}</td>
+        <td>{{film.producer}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Species</h3>
+  <table class="table" *ngIf="heroInfo.speciesData.length>0">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Avg LifeSpan</th>
+        <th>Classification</th>
+        <th>Language</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor= "let sp of heroInfo.speciesData">
+        <td>{{sp.name}}</td>
+        <td>{{sp.average_lifespan}}</td>
+        <td>{{sp.classification}}</td>
+        <td>{{sp.language}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+
+
+
+</div>
+
+
+</div>

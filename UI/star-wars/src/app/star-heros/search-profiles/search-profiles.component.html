@@ -1,0 +1,19 @@
+
+<div class="container-fluid">
+<div class="input-group mb-3 input-group-lg">
+  <div class="input-group-prepend">
+  </div>
+  <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="Search" (ngModelChange)="filterHeros()">
+</div>
+
+<div class="row">
+<div class="card" style="width:200px" *ngFor="let hero of filteredList">
+  <img class="card-img-top" src="https://fakeimg.pl/100/" alt="Card image" style="width:100%">
+  <div class="card-body">
+    <h4 class="card-title">{{hero.name}}</h4>
+    <a  class="btn btn-primary" (click)="loadProfileData(hero)">See Profile</a>
+  </div>
+</div>
+</div>
+
+</div>
